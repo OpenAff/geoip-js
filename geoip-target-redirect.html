@@ -41,7 +41,20 @@
         // ------------------------------------------------------
         // DON'T EDIT THE BELOW CODE UNLESS REQUIRED
         // ------------------------------------------------------
-        var visitorCountryCode = geoip_country_code();
+        /**
+         * Checks if geoip_country_code() was loaded from the MaxMind JS API.
+         * This prevents the script from breaking due to undefined error thrown.
+         *
+         * @return {String|Boolean} ISO 3166-1 - Alpha-2 Country Code or False.
+         */
+        function visitor_country_code() {
+            // Checks if geoip_country_code() function was loaded from the API.
+            if(typeof geoip_country_code == 'function') return geoip_country_code();
+            // Failed to load geoip_country_code() function, return FALSE.
+            console.log('geoip_country_code() failed to load, Check API!');
+            return 'All';
+        }
+        var visitorCountryCode = visitor_country_code();
         var redirectURL = target[visitorCountryCode];
         if(redirectURL == null) redirectURL = target.All;
         window.top.location.href = redirectURL;
