@@ -21,8 +21,8 @@ You can also use this script for various other use-cases like:
 
 ## Usage ##
 
-1. `geoip-target-redirect.html` Use this file or content to redirect visitors to country specific links.
-2. `geoip-target-filter.html`Use this file or content to filter visitors based on the countries aka geo-filtering.
+1. [geoip-target-redirect.html](https://github.com/irazasyed/geoip-target-filter/blob/master/geoip-target-redirect.html) Use this file or content to redirect visitors to country specific links.
+2. [geoip-target-filter.html](https://github.com/irazasyed/geoip-target-filter/blob/master/geoip-target-filter.html) Use this file or content to filter visitors based on the countries aka geo-filtering in mass.
 
 ## Issues ##
 
