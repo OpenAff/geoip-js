@@ -1,4 +1,4 @@
-geoip-target-filter
+GeoIP Target Filter
 ===================
 
 ## Introduction ##
