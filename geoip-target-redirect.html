@@ -3,18 +3,15 @@
 <head>
   <meta charset="utf-8">
   <title>Redirecting...</title>
-  <script src="//j.maxmind.com/app/geoip.js"></script>
   <script>
     /*!
      * GeoIP Target Redirector
-     * Copyright (c) 2014 Syed I.R
+     * Copyright (c) 2014-15 Syed I.R
      * Licensed under the MIT.
      * Project: https://github.com/irazasyed/geoip-target-filter
      *
-     * Uses: MaxMind's GeoIP JavaScript API
-     * @url: http://dev.maxmind.com/geoip/javascript
      * ---------------------------------------------------------------------
-     * A small snippet for geo-target redirection using MaxMind's GeoIP API.
+     * A small snippet for geo-target redirection using GeoIP API.
      * Add your targeted country's "ISO 3166-1 - Alpha-2" code and
      * redirect URL to the "target" array object.
      * ---------------------------------------------------------------------
@@ -29,7 +26,7 @@
      * See Column: "Alpha-2 Code"
      * ---------------------------------------------------------------------
      */
-    (function(){
+
         var target = []; // Create a new target Array.
 
         // Example Codes:
@@ -42,23 +39,11 @@
         // DON'T EDIT THE BELOW CODE UNLESS REQUIRED
         // ------------------------------------------------------
         /**
-         * Checks if geoip_country_code() was loaded from the MaxMind JS API.
-         * This prevents the script from breaking due to undefined error thrown.
-         *
-         * @return {String|Boolean} ISO 3166-1 - Alpha-2 Country Code or False.
+         * If a valid country code matches the targets list, then it redirects to that particular link.
+         * Otherwise redirects to "All" target URL.
          */
-        function visitor_country_code() {
-            // Checks if geoip_country_code() function was loaded from the API.
-            if(typeof geoip_country_code == 'function') return geoip_country_code();
-            // Failed to load geoip_country_code() function, return FALSE.
-            console.log('geoip_country_code() failed to load, Check API!');
-            return 'All';
-        }
-        var visitorCountryCode = visitor_country_code();
-        var redirectURL = target[visitorCountryCode];
-        if(redirectURL == null) redirectURL = target.All;
-        window.top.location.href = redirectURL;
-    })();
+        function geoip(g){window.top.location.href=target[g.country_code]||target.All}
+        (function(g,e,o,i,p){i=g.createElement(e),p=g.getElementsByTagName(e)[0];i.async=1;i.src=o;p.parentNode.insertBefore(i,p)})(document,'script','http://www.telize.com/geoip?callback=geoip');
   </script>
 </head>
 <body>

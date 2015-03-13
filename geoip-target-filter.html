@@ -3,18 +3,15 @@
 <head>
   <meta charset="utf-8">
   <title>Redirecting...</title>
-  <script src="http://j.maxmind.com/app/geoip.js"></script>
   <script>
     /*!
      * GeoIP Target Filter
-     * Copyright (c) 2014 Syed I.R
+     * Copyright (c) 2014-15 Syed I.R
      * Licensed under the MIT.
      * Project: https://github.com/irazasyed/geoip-target-filter
      *
-     * Uses: MaxMind's GeoIP JavaScript API
-     * @url: http://dev.maxmind.com/geoip/javascript
      * ---------------------------------------------------------------------
-     * A small snippet for geo-filter redirection using MaxMind's GeoIP API.
+     * A small snippet for geo-filter redirection using GeoIP API.
      * Add your targeted country's "ISO 3166-1 - Alpha-2" codes to the filter
      * to automatically redirect targeted visitors to your targeted URL and
      * to non-targeted URL otherwise.
@@ -24,53 +21,20 @@
      * ---------------------------------------------------------------------
      */
 
-    var filter              = ['US', 'GB', 'CA', 'AU'];
+    var filter              = ['US', 'GB', 'CA', 'AU', 'IN'];
     var targetVisitorsUrl   = 'http://domain.tld/';
     var allVisitorsUrl      = 'http://nontarget.domain.tld/';
 
-    (function(){
-        /**
-         * Check if the visitor is from targeted country, Redirect to target URL.
-         * Otherwise to non-target URL.
-         *
-         * If API fails, Redirects' visitors to Non-target URL.
-         */
-        if(inArray(visitor_country_code(), filter)) {
-            window.top.location.href = targetUrl;
-        } else {
-            window.top.location.href = nonTargetRedirect;
-        }
-
-        /**
-         * Checks if geoip_country_code() was loaded from the MaxMind JS API.
-         * This prevents the script from breaking due to undefined error thrown.
-         *
-         * @return {String|Boolean} ISO 3166-1 - Alpha-2 Country Code or False.
-         */
-        function visitor_country_code() {
-            // Checks if geoip_country_code() function was loaded from the API.
-            if(typeof geoip_country_code == 'function') return geoip_country_code();
-            // Failed to load geoip_country_code() function, return FALSE.
-            console.log('geoip_country_code() failed to load, Check API!');
-            return false;
-        }
-
-        /**
-         * Checks if a value exists in an array
-         *
-         * @param  {string} needle   The searched value.
-         * @param  {array}  haystack The array.
-         *
-         * @return {boolean}         Returns TRUE if needle is found in the array, FALSE otherwise.
-         */
-        function inArray(needle, haystack) {
-            var length = haystack.length;
-            for(var i = 0; i < length; i++) {
-                if(haystack[i] == needle) return true;
-            }
-            return false;
-        }
-    })();
+    // ------------------------------------------------------
+    // DON'T EDIT THE BELOW CODE UNLESS REQUIRED
+    // ------------------------------------------------------
+    /**
+     * Check if the visitor is from targeted country, Redirect to target URL.
+     * Otherwise to non-target URL.
+     */
+    function geoip(g){window.top.location.href=inArray(g.country_code,filter)?targetVisitorsUrl:allVisitorsUrl}
+    function inArray(r,n){for(var t=n.length,e=0;t>e;e++)if(n[e]==r)return!0;return!1}
+    (function(g,e,o,i,p){i=g.createElement(e),p=g.getElementsByTagName(e)[0];i.async=1;i.src=o;p.parentNode.insertBefore(i,p)})(document,'script','http://www.telize.com/geoip?callback=geoip');
   </script>
 </head>
 <body>
