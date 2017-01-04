@@ -1,7 +1,6 @@
-GeoIP Target Filter
-===================
+# GeoIP Target Filter
 
-## Introduction ##
+## Introduction
 
 GeoIP Target Redirection and Target Filter Redirection!
 
@@ -19,25 +18,28 @@ You can also use this script for various other use-cases like:
 * Sky is the limit, use it for just about anything!
 
 
-## Usage ##
+## Usage
 
-1. [geoip-target-redirect.html](https://github.com/irazasyed/geoip-target-filter/blob/master/geoip-target-redirect.html) Use this file or content to redirect visitors to country specific links.
-2. [geoip-target-filter.html](https://github.com/irazasyed/geoip-target-filter/blob/master/geoip-target-filter.html) Use this file or content to filter visitors based on the countries aka geo-filtering in mass.
+1. [geoip-target-redirect.html](geoip-target-redirect.html) Use this file or content to redirect visitors to country specific links.
+2. [geoip-target-filter.html](geoip-target-filter.html) Use this file or content to filter visitors based on the countries aka geo-filtering in mass.
 
-## Issues ##
-
-Create a [new issue](https://github.com/irazasyed/geoip-target-filter/issues/new) if you have any problems/suggestions/feedback.
-
-# Author ##
-
-[Syed I.R](https://github.com/irazasyed) - [@irazasyed](https://twitter.com/irazasyed)
-
-
-## License ##
-
-[MIT](http://opensource.org/licenses/MIT) &copy; [Syed I.R](https://github.com/irazasyed)
-
-## Contributions ##
+## Contributions
 
 Contributions are welcome, Please create a PR.
 
+## Issues
+
+Create a [new issue][link-new-issue] if you have any problems/suggestions/feedback.
+
+## Credits
+
+- [Syed I.R.][link-author]
+- [All Contributors][link-contributors]
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[link-author]: https://github.com/irazasyed
+[link-contributors]: ../../contributors
+[link-new-issue]: ../../issues/new
