@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Redirecting...</title>
-  <script>
-    /*!
-     * GeoIP Target Filter
-     * Project: https://github.com/OpenAff/geoip-target-filter
-     *
-     * ---------------------------------------------------------------------
-     * A small snippet for geo-filter redirection using GeoIP API.
-     * Add your targeted country's "ISO 3166-1 - Alpha-2" codes to the filter
-     * to automatically redirect targeted visitors to your targeted URL and
-     * to non-targeted URL otherwise.
-     *
-     * Country Codes can be found @( Wikipedia - http://bit.ly/nWBMYz )
-     * See Column: "Alpha-2 Code"
-     * ---------------------------------------------------------------------
-     */
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        /*!
+         * GeoIP Target Filter
+         * Project: https://github.com/OpenAff/geoip-target-filter
+         *
+         * ---------------------------------------------------------------------
+         * A small snippet for geo-filter redirection using GeoIP API.
+         * Add your targeted country's "ISO 3166-1 - Alpha-2" codes to the filter
+         * to automatically redirect targeted visitors to your targeted URL and
+         * to non-targeted URL otherwise.
+         *
+         * Country Codes can be found @( Wikipedia - http://bit.ly/nWBMYz )
+         * See Column: "Alpha-2 Code"
+         * ---------------------------------------------------------------------
+         */
 
-    var filter              = ['US', 'GB', 'CA', 'AU', 'IN'];
-    var targetVisitorsUrl   = 'http://domain.tld/';
-    var allVisitorsUrl      = 'http://nontarget.domain.tld/';
+        var filter = ['US', 'GB', 'CA', 'AU', 'IN'];
+        var targetVisitorsUrl = 'https://domain.tld/';
+        var allVisitorsUrl = 'https://nontarget.domain.tld/';
 
-    // ------------------------------------------------------
-    // DON'T EDIT THE BELOW CODE UNLESS REQUIRED
-    // ------------------------------------------------------
-    /**
-     * Check if the visitor is from targeted country, Redirect to target URL.
-     * Otherwise to non-target URL.
-     */
-    function geoip(g){window.top.location.href=inArray(g.country_code,filter)?targetVisitorsUrl:allVisitorsUrl}
-    function inArray(r,n){for(var t=n.length,e=0;t>e;e++)if(n[e]==r)return!0;return!1}
-    (function(g,e,o,i,p){i=g.createElement(e),p=g.getElementsByTagName(e)[0];i.async=0;i.src=o;p.parentNode.insertBefore(i,p)})(document,'script','https://get.geojs.io/v1/ip/geo.js?callback=geoip');
-  </script>
+        // ------------------------------------------------------
+        // DON'T EDIT THE BELOW CODE UNLESS REQUIRED
+        // ------------------------------------------------------
+        /**
+         * Check if the visitor is from targeted country, Redirect to target URL.
+         * Otherwise to non-target URL.
+         */
+        function geoip(g){window.top.location.href=inArray(g.country,filter)?targetVisitorsUrl:allVisitorsUrl}
+        function inArray(r,n){for(var t=n.length,e=0;t>e;e++)if(n[e]==r)return!0;return!1}
+    </script>
+    <script src="https://get.geojs.io/v1/ip/country.js?callback=geoip"></script>
 </head>
 <body>
     <p>Please wait...</p>
