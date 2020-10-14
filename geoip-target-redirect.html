@@ -28,10 +28,10 @@
         var target = []; // Create a new target Array.
 
         // Example Codes:
-        target.All = "http://domain.com/"; // Redirects Non-targeted / all other visitors to this URL.
-        target.US  = "http://domain.us/";  // Redirects US Visitors to this URL.
-        target.GB  = "http://domain.uk/";  // Redirects UK Visitors to this URL.
-        target.CA  = "http://domain.ca/";  // Redirects Canadian Visitors to this URL.
+        target.All = "https://domain.com/"; // Redirects Non-targeted / all other visitors to this URL.
+        target.US  = "https://domain.us/";  // Redirects US Visitors to this URL.
+        target.GB  = "https://domain.uk/";  // Redirects UK Visitors to this URL.
+        target.CA  = "https://domain.ca/";  // Redirects Canadian Visitors to this URL.
 
         // ------------------------------------------------------
         // DON'T EDIT THE BELOW CODE UNLESS REQUIRED
@@ -40,9 +40,9 @@
          * If a valid country code matches the targets list, then it redirects to that particular link.
          * Otherwise redirects to "All" target URL.
          */
-        function geoip(g){window.top.location.href=target[g.country_code]||target.All}
-        (function(g,e,o,i,p){i=g.createElement(e),p=g.getElementsByTagName(e)[0];i.async=0;i.src=o;p.parentNode.insertBefore(i,p)})(document,'script','https://get.geojs.io/v1/ip/geo.js?callback=geoip');
+        function geoip(g){window.top.location.href=target[g.country]||target.All}
   </script>
+  <script src="https://get.geojs.io/v1/ip/country.js?callback=geoip"></script>
 </head>
 <body>
     <p>Please wait...</p>
